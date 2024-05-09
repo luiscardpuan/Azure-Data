@@ -15,4 +15,5 @@ En este ejercicio, utilizará una combinación de un script de PowerShell y una 
 
   ![Azure portal with a cloud shell pane](../images/cloud-shell.png)
 
+> **Nota** : si anteriormente creó un shell de nube que usa un entorno Bash , use el menú desplegable en la parte superior izquierda del panel de shell de nube para cambiarlo a PowerShell .
   
