@@ -83,7 +83,7 @@ $resourceGroupName = "rg-lab-$suffix"
 
 # Choose a random region
 Write-Host "Finding an available region. This may take several minutes...";
-$delay = 0, 30, 60, 90, 120 | Get-Random
+$delay = 0, 10, 20, 30 | Get-Random
 Start-Sleep -Seconds $delay # random delay to stagger requests from multi-student classes
 $preferred_list = "centralus","southcentralus","eastus2","westus","westus2"
 $locations = Get-AzLocation | Where-Object {
