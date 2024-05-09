@@ -17,5 +17,12 @@ En este ejercicio, utilizará una combinación de un script de PowerShell y una 
 
 > **Nota** : si anteriormente creó un shell de nube que usa un entorno Bash , use el menú desplegable en la parte superior izquierda del panel de shell de nube para cambiarlo a PowerShell.
 
-3. Tenga en cuenta que puede cambiar el tamaño del shell de la nube arrastrando la barra separadora en la parte superior del panel o usando los íconos — , ◻ y X en la parte superior derecha del panel para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la documentación de Azure Cloud Shell .
+3. Tenga en cuenta que puede cambiar el tamaño del shell de la nube arrastrando la barra separadora en la parte superior del panel o usando los íconos — , ◻ y X en la parte superior derecha del panel para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)..
+   
+4. En el panel de PowerShell, ingrese los siguientes comandos para clonar este repositorio:
+
+```
+    rm -r laboratorio -f
+    git clone https://github.com/MicrosoftLearning/DP-500-Azure-Data-Analyst dp500
+```
   
