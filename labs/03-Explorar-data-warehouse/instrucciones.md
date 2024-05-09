@@ -23,6 +23,7 @@ En este ejercicio, utilizará una combinación de un script de PowerShell y una 
 
 ```
     rm -r laboratorio -f
-    git clone https://github.com/MicrosoftLearning/DP-500-Azure-Data-Analyst dp500
+    git clone https://github.com/luiscardpuan/Azure-Data.git laboratorio
+
 ```
   
