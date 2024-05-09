@@ -13,7 +13,7 @@ En este ejercicio, utilizará una combinación de un script de PowerShell y una 
 
 2. Utilice el botón **[>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, seleccionando un entorno de **PowerShell** y creando almacenamiento si se le solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel en la parte inferior de Azure Portal, como se muestra aquí:
 
-  ![Azure portal with a cloud shell pane](../labs/images/cloud-shell.png)
+  ![Azure portal with a cloud shell pane](../labs/03-Explorar-data-warehouse/images/cloud-shell.png)
 
 > **Nota** : si anteriormente creó un shell de nube que usa un entorno Bash , use el menú desplegable en la parte superior izquierda del panel de shell de nube para cambiarlo a PowerShell.
 
