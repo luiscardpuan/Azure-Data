@@ -22,15 +22,14 @@ En este ejercicio, utilizará una combinación de un script de PowerShell y una 
 4. En el panel de PowerShell, ingrese los siguientes comandos para clonar este repositorio:
 
 ```
-    rm -r laboratorio -f
-    git clone https://github.com/luiscardpuan/Azure-Data.git laboratorio
-
+rm -r laboratorio -f
+git clone https://github.com/luiscardpuan/Azure-Data.git laboratorio
 ```
 
 5. Una vez clonado el repositorio, ingrese los siguientes comandos para cambiar a la carpeta de esta práctica de laboratorio y ejecutar el script setup.ps1 que contiene:
 
   ```
-      cd laboratorio/labs/03-Explorar-data-warehouse
-      ./setup.ps1
+  cd laboratorio/labs/03-Explorar-data-warehouse
+  ./setup.ps1
   ```
   
