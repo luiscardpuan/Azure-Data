@@ -51,7 +51,7 @@ En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de
 4. En la página **Manage** , asegúrese de que la pestaña **SQL pools** esté seleccionada y luego seleccione el grupo de SQL dedicado **sqlxxxxxxx** y use su ícono **&#9655;** para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
 5. Espere a que se reanude el grupo de SQL. Esto puede tardar unos minutos. Utilice el botón **&#8635;** Actualizar para comprobar su estado periódicamente. El estado se mostrará como En línea cuando esté listo.
 
-(../03-Explorar-data-warehouse/images/Manage.PNG)
+[Imagen](../03-Explorar-data-warehouse/images/Manage.PNG)
 
 
 ### Ver las tablas en la base de datos.
