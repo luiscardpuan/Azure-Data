@@ -70,7 +70,7 @@ En algunos casos, las dimensiones están parcialmente normalizadas en varias tab
 6.	Vea las columnas de la tabla **dbo.DimDate** y tenga en cuenta que contiene varias columnas que reflejan diferentes atributos temporales de una fecha, incluidos el día de la semana, el día del mes, el mes, el año, el nombre del día, el nombre del mes, etc.
 Las dimensiones de tiempo en un almacén de datos generalmente se implementan como una tabla de dimensiones que contiene una fila para cada una de las unidades temporales de granularidad más pequeñas (a menudo denominadas grano de la dimensión) mediante las cuales se desean agregar las medidas en las tablas de hechos. En este caso, el grano más bajo en el que se pueden agregar medidas es una fecha individual y la tabla contiene una fila para cada fecha desde la primera hasta la última fecha a la que se hace referencia en los datos. Los atributos de la tabla **DimDate** permiten a los analistas agregar medidas basadas en cualquier clave de fecha en la tabla de hechos, utilizando un conjunto consistente de atributos temporales (por ejemplo, ver pedidos por mes según la fecha del pedido). La tabla **FactInternetSales** contiene tres claves relacionadas con la tabla **DimDate : OrderDateKey , DueDateKey y ShipDateKey**.
 
-##Consultar las tablas del almacén de datos.
+## Consultar las tablas del almacén de datos.
 
 Ahora que ha explorado algunos de los aspectos más importantes del esquema del almacén de datos, está listo para consultar las tablas y recuperar algunos datos.
 
