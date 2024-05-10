@@ -205,6 +205,14 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 	|...|...|...|...|...|...|...|
 	|United States|10051|SO66863|1|2443.3500|2905011.1600|289.0270|
 
+	Observe los siguientes hechos sobre estos resultados:
+	
+	-	Hay una fila para cada partida de pedido de ventas.
+	-	Las filas están organizadas en particiones según la geografía donde se realizó la venta.
+	-	Las filas dentro de cada partición geográfica están numeradas en orden de monto de ventas (de menor a mayor).
+	-	Para cada fila, se incluyen el monto de ventas de la línea de pedido, así como el total regional y los montos de ventas promedio.
+	-	En las consultas existentes, agregue el siguiente código para aplicar funciones de ventanas dentro de una consulta GRUPO POR y clasificar las ciudades de cada región según su monto total de ventas:
+
 
    
 
