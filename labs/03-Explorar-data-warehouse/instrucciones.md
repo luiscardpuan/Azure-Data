@@ -60,7 +60,7 @@ En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de
 
 2.	Expanda **SQL database**, el grupo **sqlxxxxxxx** y su carpeta **Tables** para ver las tablas en la base de datos.
 
-Un almacén de datos relacional normalmente se basa en un esquema que consta de tablas de hechos y dimensiones . Las tablas están optimizadas para consultas analíticas en las que las métricas numéricas de las tablas de hechos se agregan mediante atributos de las entidades representadas por las tablas de dimensiones; por ejemplo, le permiten agregar los ingresos por ventas de Internet por producto, cliente, fecha, etc.
+  Un almacén de datos relacional normalmente se basa en un esquema que consta de tablas de hechos y dimensiones . Las tablas están optimizadas para consultas analíticas en las que las métricas numéricas de las tablas de hechos se agregan mediante atributos de las entidades representadas por las tablas de dimensiones; por ejemplo, le permiten agregar los ingresos por ventas de Internet por producto, cliente, fecha, etc.
 
 3.	Expanda la tabla **dbo.FactInternetSales** y su carpeta **Columnas** para ver las columnas de esta tabla. Tenga en cuenta que muchas de las columnas son claves que hacen referencia a filas en las tablas de dimensiones. Otros son valores numéricos ( medidas ) para análisis.
 
