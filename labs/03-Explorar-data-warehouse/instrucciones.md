@@ -236,7 +236,7 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 -	La clasificación de cada ciudad dentro de su partición regional se calcula ordenando el monto total de ventas por ciudad en orden descendente.
 5.	Publique el script actualizado para guardar los cambios.
 
->	**NOTA** : ROW_NUMBER y RANK son ejemplos de funciones de clasificación disponibles en Transact-SQL. Para obtener más detalles, consulte la referencia de Funciones de clasificación en la documentación del lenguaje Transact-SQL.
+	> **NOTA** : ROW_NUMBER y RANK son ejemplos de funciones de clasificación disponibles en Transact-SQL. Para obtener más detalles, consulte la referencia de Funciones de clasificación en la documentación del lenguaje Transact-SQL.
 
 
 
