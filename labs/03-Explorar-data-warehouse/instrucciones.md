@@ -84,6 +84,7 @@ Las dimensiones de tiempo en un almacén de datos generalmente se implementan co
 Ahora que ha explorado algunos de los aspectos más importantes del esquema del almacén de datos, está listo para consultar las tablas y recuperar algunos datos.
 
 ### Consultar tablas de hechos y dimensiones.
+
 Los valores numéricos en un almacén de datos relacional se almacenan en tablas de hechos con tablas de dimensiones relacionadas que puede utilizar para agregar los datos en múltiples atributos. Este diseño significa que la mayoría de las consultas en un almacén de datos relacional implican agregar y agrupar datos (usando funciones agregadas y cláusulas GROUP BY) en tablas relacionadas (usando cláusulas JOIN).
 
 1. En la página Datos , seleccione el grupo SQL **sqlxxxxxxx** y en su menú ... , seleccione **Nuevo script SQL > Script vacío**.
