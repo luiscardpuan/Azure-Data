@@ -178,6 +178,33 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 	```
 2.	Seleccione solo el nuevo código de consulta y use el botón ▷ Ejecutar para ejecutarlo. Luego revise los resultados, que deberían ser similares a la siguiente tabla:
 
+	| Region | RowNumber | OrderNo | LineItem | SalesAmount | RegionTotal | RegionAverage |
+	|--|--|--|--|--|--|--|
+	|Australia|1|SO73943|2|2.2900|2172278.7900|375.8918|
+	|Australia|2|SO74100|4|2.2900|2172278.7900|375.8918|
+	|...|...|...|...|...|...|...|
+	|Australia|5779|SO64284|1|2443.3500|2172278.7900|375.8918|
+	|Canada|1|SO66332|2|2.2900|563177.1000|157.8411|
+	|Canada|2|SO68234|2|2.2900|563177.1000|157.8411|
+	|...|...|...|...|...|...|...|
+	|Canada|3568|SO70911|1|2443.3500|563177.1000|157.8411|
+	|France|1|SO68226|3|2.2900|816259.4300|315.4016|
+	|France|2|SO63460|2|2.2900|816259.4300|315.4016|
+	|...|...|...|...|...|...|...|
+	|France|2588|SO69100|1|2443.3500|816259.4300|315.4016|
+	|Germany|1|SO70829|3|2.2900|922368.2100|352.4525|
+	|Germany|2|SO71651|2|2.2900|922368.2100|352.4525|
+	|...|...|...|...|...|...|...|
+	|Germany|2617|SO67908|1|2443.3500|922368.2100|352.4525|
+	|United Kingdom|1|SO66124|3|2.2900|1051560.1000|341.7484|
+	|United Kingdom|2|SO67823|3|2.2900|1051560.1000|341.7484|
+	|...|...|...|...|...|...|...|
+	|United Kingdom|3077|SO71568|1|2443.3500|1051560.1000|341.7484|
+	|United States|1|SO74796|2|2.2900|2905011.1600|289.0270|
+	|United States|2|SO65114|2|2.2900|2905011.1600|289.0270|
+	|...|...|...|...|...|...|...|
+	|United States|10051|SO66863|1|2443.3500|2905011.1600|289.0270|
+
 
    
 
