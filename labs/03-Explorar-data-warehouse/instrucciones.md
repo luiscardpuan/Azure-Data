@@ -87,7 +87,9 @@ Ahora que ha explorado algunos de los aspectos más importantes del esquema del 
 
 Los valores numéricos en un almacén de datos relacional se almacenan en tablas de hechos con tablas de dimensiones relacionadas que puede utilizar para agregar los datos en múltiples atributos. Este diseño significa que la mayoría de las consultas en un almacén de datos relacional implican agregar y agrupar datos (usando funciones agregadas y cláusulas GROUP BY) en tablas relacionadas (usando cláusulas JOIN).
 
-1. En la página Datos , seleccione el grupo SQL **sqlxxxxxxx** y en su menú ... , seleccione **Nuevo script SQL > Script vacío**.
+1. En la página **Data** , seleccione SQL database **sqlxxxxxxx** y en su menú **...** , seleccione **New SQL script > Emty Script**.
+
+![](../03-Explorar-data-warehouse/images/script1.PNG)
 
 2. Cuando se abra una nueva pestaña **SQL Script 1**, en su panel **Propiedades**, cambie el nombre del script a Analizar ventas de Internet y cambie la configuración de Resultados por consulta para devolver todas las filas. Luego use el botón Publicar en la barra de herramientas para guardar el script y use el botón Propiedades (que se parece a 🗏. ) en el extremo derecho de la barra de herramientas para cerrar el panel Propiedades para que pueda ver el panel del script.
 
