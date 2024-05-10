@@ -32,4 +32,21 @@ git clone https://github.com/luiscardpuan/Azure-Data.git laboratorio
   cd laboratorio/labs/03-Explorar-data-warehouse
   ./setup.ps1
   ```
-  
+6. Si se le solicita, elija qué suscripción desea usar (esto solo sucederá si tiene acceso a varias suscripciones de Azure).
+
+7. Cuando se le solicite, ingrese una contraseña adecuada que se establecerá para su grupo de SQL de Azure Synapse.
+
+> **Nota** : ¡Asegúrese de recordar esta contraseña!
+
+Espere a que se complete el script; esto suele tardar unos 15 minutos, pero en algunos casos puede tardar más.
+
+## Explora el esquema del almacén de datos
+
+En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de SQL dedicado en Azure Synapse Analytics.
+
+Inicie el grupo SQL dedicado
+Una vez completado el script, en Azure Portal, vaya al grupo de recursos dp500- xxxxxxx que creó y seleccione su área de trabajo de Synapse.
+En la página Descripción general de su espacio de trabajo de Synapse, en la tarjeta Abrir Synapse Studio , seleccione Abrir para abrir Synapse Studio en una nueva pestaña del navegador; iniciar sesión si se le solicita.
+En el lado izquierdo de Synapse Studio, use el ícono ›› para expandir el menú; esto revela las diferentes páginas dentro de Synapse Studio que se utilizan para administrar recursos y realizar tareas de análisis de datos.
+En la página Administrar , asegúrese de que la pestaña Grupos de SQL esté seleccionada y luego seleccione el grupo de SQL dedicado sql xxxxxxx y use su ícono ▷ para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
+Espere a que se reanude el grupo de SQL. Esto puede tardar unos minutos. Utilice el botón ↻ Actualizar para comprobar su estado periódicamente. El estado se mostrará como En línea cuando esté listo.
