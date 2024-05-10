@@ -48,7 +48,7 @@ En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de
 1. Una vez completado el script, en Azure Portal, vaya al grupo de recursos **rg-lab-xxxxxxx** que creó y seleccione su área de trabajo de Synapse.
 2. En la página Descripción general de su espacio de trabajo de Synapse, en la tarjeta Abrir Synapse Studio , seleccione Abrir para abrir Synapse Studio en una nueva pestaña del navegador; iniciar sesión si se le solicita.
 3. En el lado izquierdo de Synapse Studio, use el ícono **&rsaquo;&rsaquo;** para expandir el menú; esto revela las diferentes páginas dentro de Synapse Studio que se utilizan para administrar recursos y realizar tareas de análisis de datos.
-4. En la página **Manage** , asegúrese de que la pestaña Grupos de SQL esté seleccionada y luego seleccione el grupo de SQL dedicado **sql-xxxxxxx** y use su ícono **&#9655;** para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
+4. En la página **Manage** , asegúrese de que la pestaña **SQL pools** esté seleccionada y luego seleccione el grupo de SQL dedicado **sqlxxxxxxx** y use su ícono **&#9655;** para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
 5. Espere a que se reanude el grupo de SQL. Esto puede tardar unos minutos. Utilice el botón **&#8635;** Actualizar para comprobar su estado periódicamente. El estado se mostrará como En línea cuando esté listo.
 
 ### Ver las tablas en la base de datos.
@@ -69,4 +69,41 @@ En algunos casos, las dimensiones están parcialmente normalizadas en varias tab
 
 6.	Vea las columnas de la tabla **dbo.DimDate** y tenga en cuenta que contiene varias columnas que reflejan diferentes atributos temporales de una fecha, incluidos el día de la semana, el día del mes, el mes, el año, el nombre del día, el nombre del mes, etc.
 Las dimensiones de tiempo en un almacén de datos generalmente se implementan como una tabla de dimensiones que contiene una fila para cada una de las unidades temporales de granularidad más pequeñas (a menudo denominadas grano de la dimensión) mediante las cuales se desean agregar las medidas en las tablas de hechos. En este caso, el grano más bajo en el que se pueden agregar medidas es una fecha individual y la tabla contiene una fila para cada fecha desde la primera hasta la última fecha a la que se hace referencia en los datos. Los atributos de la tabla **DimDate** permiten a los analistas agregar medidas basadas en cualquier clave de fecha en la tabla de hechos, utilizando un conjunto consistente de atributos temporales (por ejemplo, ver pedidos por mes según la fecha del pedido). La tabla **FactInternetSales** contiene tres claves relacionadas con la tabla **DimDate : OrderDateKey , DueDateKey y ShipDateKey**.
+
+##Consultar las tablas del almacén de datos.
+
+Ahora que ha explorado algunos de los aspectos más importantes del esquema del almacén de datos, está listo para consultar las tablas y recuperar algunos datos.
+
+### Consultar tablas de hechos y dimensiones.
+Los valores numéricos en un almacén de datos relacional se almacenan en tablas de hechos con tablas de dimensiones relacionadas que puede utilizar para agregar los datos en múltiples atributos. Este diseño significa que la mayoría de las consultas en un almacén de datos relacional implican agregar y agrupar datos (usando funciones agregadas y cláusulas GROUP BY) en tablas relacionadas (usando cláusulas JOIN).
+
+1. En la página Datos , seleccione el grupo SQL **sqlxxxxxxx** y en su menú ... , seleccione **Nuevo script SQL > Script vacío**.
+
+2. Cuando se abra una nueva pestaña **SQL Script 1**, en su panel **Propiedades**, cambie el nombre del script a Analizar ventas de Internet y cambie la configuración de Resultados por consulta para devolver todas las filas. Luego use el botón Publicar en la barra de herramientas para guardar el script y use el botón Propiedades (que se parece a 🗏. ) en el extremo derecho de la barra de herramientas para cerrar el panel Propiedades para que pueda ver el panel del script.
+
+3. En el script vacío, agregue el siguiente código:
+
+    ```sql
+SELECT  d.CalendarYear AS Year,
+        SUM(i.SalesAmount) AS InternetSalesAmount
+FROM FactInternetSales AS i
+JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+GROUP BY d.CalendarYear
+ORDER BY Year;
+    ```
+
+4. Utilice el botón **▷** Ejecutar para ejecutar el script y revisar los resultados, que deberían mostrar los totales de ventas de Internet para cada año. Esta consulta une la tabla de hechos para las ventas por Internet a una tabla de dimensiones de tiempo basada en la fecha del pedido y agrega la medida del monto de ventas en la tabla de hechos por el atributo de mes calendario de la tabla de dimensiones.
+
+5. Modifique la consulta de la siguiente manera para agregar el atributo de mes de la dimensión de tiempo y luego ejecute la consulta modificada.
+
+```sql
+SELECT  d.CalendarYear AS Year,
+      d.MonthNumberOfYear AS Month,
+      SUM(i.SalesAmount) AS InternetSalesAmount
+FROM FactInternetSales AS i
+JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+GROUP BY d.CalendarYear, d.MonthNumberOfYear
+ORDER BY Year, Month;
+```
+
 
