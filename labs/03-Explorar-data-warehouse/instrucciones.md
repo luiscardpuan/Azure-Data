@@ -91,7 +91,7 @@ Los valores numéricos en un almacén de datos relacional se almacenan en tablas
 
 	![](../03-Explorar-data-warehouse/images/script1.PNG)
 
-2. Cuando se abra una nueva pestaña **SQL Script 1**, en su panel **Propiedades**, cambie el nombre del script a Analizar ventas de Internet y cambie la configuración de Resultados por consulta para devolver todas las filas. Luego use el botón Publicar en la barra de herramientas para guardar el script y use el botón Propiedades (que se parece a 🗏. ) en el extremo derecho de la barra de herramientas para cerrar el panel Propiedades para que pueda ver el panel del script.
+2. Cuando se abra una nueva pestaña **SQL Script 1**, en su panel **Propiedades**, cambie el nombre del script a **Analizar ventas de Internet** y cambie la configuración de Resultados por consulta para devolver todas las filas. Luego use el botón Publicar en la barra de herramientas para guardar el script y use el botón Propiedades (que se parece a **&#128463;.** ) en el extremo derecho de la barra de herramientas para cerrar el panel Propiedades para que pueda ver el panel del script.
 
 3. En el script vacío, agregue el siguiente código:
 
