@@ -153,6 +153,32 @@ Los valores numéricos en un almacén de datos relacional se almacenan en tablas
 	Esta vez, la dimensión del copo de nieve para la categoría de producto requiere tres uniones para reflejar la relación jerárquica entre productos, subcategorías y categorías.
 
 8.	Publique el script para guardarlo.
+
+### Utilice funciones de clasificación
+
+Otro requisito común al analizar grandes volúmenes de datos es agrupar los datos por particiones y determinar el rango de cada entidad en la partición en función de una métrica específica.
+
+1.	En la consulta existente, agregue el siguiente SQL para recuperar los valores de ventas para 2022 en particiones según el nombre del país/región:
+
+	```sql
+	SELECT  g.EnglishCountryRegionName AS Region,
+	    ROW_NUMBER() OVER(PARTITION BY g.EnglishCountryRegionName
+			      ORDER BY i.SalesAmount ASC) AS RowNumber,
+	    i.SalesOrderNumber AS OrderNo,
+	    i.SalesOrderLineNumber AS LineItem,
+	    i.SalesAmount AS SalesAmount,
+	    SUM(i.SalesAmount) OVER(PARTITION BY g.EnglishCountryRegionName) AS RegionTotal,
+	    AVG(i.SalesAmount) OVER(PARTITION BY g.EnglishCountryRegionName) AS RegionAverage
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	JOIN DimCustomer AS c ON i.CustomerKey = c.CustomerKey
+	JOIN DimGeography AS g ON c.GeographyKey = g.GeographyKey
+	WHERE d.CalendarYear = 2022
+	ORDER BY Region;
+	```
+2.	Seleccione solo el nuevo código de consulta y use el botón ▷ Ejecutar para ejecutarlo. Luego revise los resultados, que deberían ser similares a la siguiente tabla:
+
+
    
 
 
