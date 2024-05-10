@@ -44,7 +44,7 @@ Espere a que se complete el script; esto suele tardar unos 15 minutos, pero en a
 
 En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de SQL dedicado en Azure Synapse Analytics.
 
-Inicie el grupo SQL dedicado
+### Inicie el grupo SQL dedicado
 Una vez completado el script, en Azure Portal, vaya al grupo de recursos **rg-lab-xxxxxxx** que creó y seleccione su área de trabajo de Synapse.
 En la página Descripción general de su espacio de trabajo de Synapse, en la tarjeta Abrir Synapse Studio , seleccione Abrir para abrir Synapse Studio en una nueva pestaña del navegador; iniciar sesión si se le solicita.
 En el lado izquierdo de Synapse Studio, use el ícono **&rsaquo;&rsaquo;** para expandir el menú; esto revela las diferentes páginas dentro de Synapse Studio que se utilizan para administrar recursos y realizar tareas de análisis de datos.
