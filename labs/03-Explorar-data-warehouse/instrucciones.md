@@ -211,7 +211,34 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 	-	Las filas están organizadas en particiones según la geografía donde se realizó la venta.
 	-	Las filas dentro de cada partición geográfica están numeradas en orden de monto de ventas (de menor a mayor).
 	-	Para cada fila, se incluyen el monto de ventas de la línea de pedido, así como el total regional y los montos de ventas promedio.
-	-	En las consultas existentes, agregue el siguiente código para aplicar funciones de ventanas dentro de una consulta GRUPO POR y clasificar las ciudades de cada región según su monto total de ventas:
+ -	
+3.	En las consultas existentes, agregue el siguiente código para aplicar funciones de ventanas dentro de una consulta GROUP BY y clasificar las ciudades de cada región según su monto total de ventas:
+  	
+	```sql
+	SELECT  g.EnglishCountryRegionName AS Region,
+	    g.City,
+	    SUM(i.SalesAmount) AS CityTotal,
+	    SUM(SUM(i.SalesAmount)) OVER(PARTITION BY g.EnglishCountryRegionName) AS RegionTotal,
+	    RANK() OVER(PARTITION BY g.EnglishCountryRegionName
+			ORDER BY SUM(i.SalesAmount) DESC) AS RegionalRank
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	JOIN DimCustomer AS c ON i.CustomerKey = c.CustomerKey
+	JOIN DimGeography AS g ON c.GeographyKey = g.GeographyKey
+	GROUP BY g.EnglishCountryRegionName, g.City
+	ORDER BY Region;
+	```
+4.	Seleccione solo el nuevo código de consulta y use el botón **&#9655;** Ejecutar para ejecutarlo. Luego revise los resultados y observe lo siguiente:
+
+-	Los resultados incluyen una fila para cada ciudad, agrupada por región.
+-	Las ventas totales (suma de los montos de ventas individuales) se calculan para cada ciudad.
+-	El total de ventas regionales (la suma de los montos de ventas de cada ciudad de la región) se calcula en función de la partición regional.
+-	La clasificación de cada ciudad dentro de su partición regional se calcula ordenando el monto total de ventas por ciudad en orden descendente.
+5.	Publique el script actualizado para guardar los cambios.
+
+>	**NOTA** : ROW_NUMBER y RANK son ejemplos de funciones de clasificación disponibles en Transact-SQL. Para obtener más detalles, consulte la referencia de Funciones de clasificación en la documentación del lenguaje Transact-SQL.
+
+
 
 
    
