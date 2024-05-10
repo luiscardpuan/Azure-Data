@@ -95,14 +95,14 @@ Los valores numéricos en un almacén de datos relacional se almacenan en tablas
 
 3. En el script vacío, agregue el siguiente código:
 
-```sql
-SELECT  d.CalendarYear AS Year,
-        SUM(i.SalesAmount) AS InternetSalesAmount
-FROM FactInternetSales AS i
-JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
-GROUP BY d.CalendarYear
-ORDER BY Year;
-```
+	```sql
+	SELECT  d.CalendarYear AS Year,
+	        SUM(i.SalesAmount) AS InternetSalesAmount
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	GROUP BY d.CalendarYear
+	ORDER BY Year;
+	```
 
 4. Utilice el botón **▷** Ejecutar para ejecutar el script y revisar los resultados, que deberían mostrar los totales de ventas de Internet para cada año. Esta consulta une la tabla de hechos para las ventas por Internet a una tabla de dimensiones de tiempo basada en la fecha del pedido y agrega la medida del monto de ventas en la tabla de hechos por el atributo de mes calendario de la tabla de dimensiones.
 
