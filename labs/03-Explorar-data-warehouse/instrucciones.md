@@ -108,14 +108,15 @@ ORDER BY Year;
 
 5. Modifique la consulta de la siguiente manera para agregar el atributo de mes de la dimensión de tiempo y luego ejecute la consulta modificada.
 
-```sql
-SELECT  d.CalendarYear AS Year,
-      d.MonthNumberOfYear AS Month,
-      SUM(i.SalesAmount) AS InternetSalesAmount
-FROM FactInternetSales AS i
-JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
-GROUP BY d.CalendarYear, d.MonthNumberOfYear
-ORDER BY Year, Month;
-```
+	```sql
+	SELECT  d.CalendarYear AS Year,
+	      d.MonthNumberOfYear AS Month,
+	      SUM(i.SalesAmount) AS InternetSalesAmount
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	GROUP BY d.CalendarYear, d.MonthNumberOfYear
+	ORDER BY Year, Month;
+	```
+
 
 
