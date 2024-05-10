@@ -117,7 +117,7 @@ Los valores numéricos en un almacén de datos relacional se almacenan en tablas
 	GROUP BY d.CalendarYear, d.MonthNumberOfYear
 	ORDER BY Year, Month;
 	```
-Tenga en cuenta que los atributos de la dimensión de tiempo le permiten agregar las medidas de la tabla de hechos en varios niveles jerárquicos (en este caso, año y mes). Este es un patrón común en los almacenes de datos.
+	Tenga en cuenta que los atributos de la dimensión de tiempo le permiten agregar las medidas de la tabla de hechos en varios niveles jerárquicos (en este caso, año y mes). Este es un patrón común en los almacenes de datos.
 
 6.	Modifique la consulta de la siguiente manera para eliminar el mes y agregar una segunda dimensión a la agregación, y luego ejecútela para ver los resultados (que muestran los totales anuales de ventas por Internet para cada región):
    
@@ -132,6 +132,27 @@ Tenga en cuenta que los atributos de la dimensión de tiempo le permiten agregar
 	GROUP BY d.CalendarYear, g.EnglishCountryRegionName
 	ORDER BY Year, Region;
 	```
+	Tenga en cuenta que la geografía es una dimensión copo de nieve que está relacionada con la tabla de datos de ventas por Internet a través de la dimensión del cliente. Por lo tanto, necesita dos combinaciones en la consulta para agregar las ventas de Internet por geografía.
+
+7.	Modifique y vuelva a ejecutar la consulta para agregar otra dimensión de copo de nieve y agregar las ventas regionales anuales por categoría de producto:
+	```sql
+	SELECT  d.CalendarYear AS Year,
+	    pc.EnglishProductCategoryName AS ProductCategory,
+	    g.EnglishCountryRegionName AS Region,
+	    SUM(i.SalesAmount) AS InternetSalesAmount
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	JOIN DimCustomer AS c ON i.CustomerKey = c.CustomerKey
+	JOIN DimGeography AS g ON c.GeographyKey = g.GeographyKey
+	JOIN DimProduct AS p ON i.ProductKey = p.ProductKey
+	JOIN DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey
+	JOIN DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey
+	GROUP BY d.CalendarYear, pc.EnglishProductCategoryName, g.EnglishCountryRegionName
+	ORDER BY Year, ProductCategory, Region;
+	```
+	Esta vez, la dimensión del copo de nieve para la categoría de producto requiere tres uniones para reflejar la relación jerárquica entre productos, subcategorías y categorías.
+
+8.	Publique el script para guardarlo.
    
 
 
