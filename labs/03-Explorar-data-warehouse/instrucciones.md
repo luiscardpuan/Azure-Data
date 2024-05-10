@@ -48,7 +48,7 @@ En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de
 1. Una vez completado el script, en Azure Portal, vaya al grupo de recursos **rg-lab-xxxxxxx** que creó y seleccione su área de trabajo de Synapse.
 2. En la página Descripción general de su espacio de trabajo de Synapse, en la tarjeta Abrir Synapse Studio , seleccione Abrir para abrir Synapse Studio en una nueva pestaña del navegador; iniciar sesión si se le solicita.
 3. En el lado izquierdo de Synapse Studio, use el ícono **&rsaquo;&rsaquo;** para expandir el menú; esto revela las diferentes páginas dentro de Synapse Studio que se utilizan para administrar recursos y realizar tareas de análisis de datos.
-4. En la página Administrar , asegúrese de que la pestaña Grupos de SQL esté seleccionada y luego seleccione el grupo de SQL dedicado **sql-xxxxxxx** y use su ícono **&#9655;** para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
+4. En la página **Manage** , asegúrese de que la pestaña Grupos de SQL esté seleccionada y luego seleccione el grupo de SQL dedicado **sql-xxxxxxx** y use su ícono **&#9655;** para iniciarlo; confirmando que desea reanudarlo cuando se le solicite.
 5. Espere a que se reanude el grupo de SQL. Esto puede tardar unos minutos. Utilice el botón **&#8635;** Actualizar para comprobar su estado periódicamente. El estado se mostrará como En línea cuando esté listo.
 
 ### Ver las tablas en la base de datos.
