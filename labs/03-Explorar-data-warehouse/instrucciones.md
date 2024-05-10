@@ -56,22 +56,28 @@ En esta práctica de laboratorio, el almacén de datos se hospeda en un grupo de
 
 ### Ver las tablas en la base de datos.
 
-1.	En Synapse Studio, seleccione la página **Datos** y asegúrese de que la pestaña **Área de trabajo** esté seleccionada y contenga una categoría **de base de datos SQL**.
+1.	En Synapse Studio, seleccione la página **Data** y asegúrese de que la pestaña **Workspace** esté seleccionada y contenga una categoría **SQL database**.
 
-2.	Expanda **la base de datos SQL**, el grupo **sql-xxxxxxx** y su carpeta Tablas para ver las tablas en la base de datos.
+2.	Expanda **SQL database**, el grupo **sqlxxxxxxx** y su carpeta **Tables** para ver las tablas en la base de datos.
+
 Un almacén de datos relacional normalmente se basa en un esquema que consta de tablas de hechos y dimensiones . Las tablas están optimizadas para consultas analíticas en las que las métricas numéricas de las tablas de hechos se agregan mediante atributos de las entidades representadas por las tablas de dimensiones; por ejemplo, le permiten agregar los ingresos por ventas de Internet por producto, cliente, fecha, etc.
 
 3.	Expanda la tabla **dbo.FactInternetSales** y su carpeta **Columnas** para ver las columnas de esta tabla. Tenga en cuenta que muchas de las columnas son claves que hacen referencia a filas en las tablas de dimensiones. Otros son valores numéricos ( medidas ) para análisis.
+
 Las claves se utilizan para relacionar una tabla de hechos con una o más tablas de dimensiones, a menudo en un esquema de estrella ; en el que la tabla de hechos está directamente relacionada con cada tabla de dimensiones (formando una "estrella" de múltiples puntas con la tabla de hechos en el centro).
 
 4.	Vea las columnas de la tabla **dbo.DimPromotion** y tenga en cuenta que tiene una **PromotionKey** única que identifica de forma única cada fila de la tabla. También tiene una **clave alternativa**.
+
 Por lo general, los datos de un almacén de datos se importan de una o más fuentes transaccionales. La clave alternativa refleja el identificador de negocio para la instancia de esta entidad en el origen, pero generalmente se genera una clave sustituta numérica única para identificar de forma única cada fila en la tabla de dimensiones del almacén de datos. Uno de los beneficios de este enfoque es que permite que el almacén de datos contenga múltiples instancias de la misma entidad en diferentes momentos (por ejemplo, registros del mismo cliente que reflejan su dirección en el momento en que se realizó un pedido).
 
 5.	Vea las columnas de **dbo.DimProduct** y tenga en cuenta que contiene una columna **ProductSubcategoryKey**, que hace referencia a la tabla **dbo.DimProductSubcategory**, que a su vez contiene una columna **ProductCategoryKey** que hace referencia a la tabla **dbo.DimProductCategory**.
+
 En algunos casos, las dimensiones están parcialmente normalizadas en varias tablas relacionadas para permitir diferentes niveles de granularidad, como productos que se pueden agrupar en subcategorías y categorías. Esto da como resultado que una simple estrella se extienda a un esquema de copo de nieve , en el que la tabla de hechos central está relacionada con una tabla de dimensiones, que a su vez está relacionada con otras tablas de dimensiones.
 
 6.	Vea las columnas de la tabla **dbo.DimDate** y tenga en cuenta que contiene varias columnas que reflejan diferentes atributos temporales de una fecha, incluidos el día de la semana, el día del mes, el mes, el año, el nombre del día, el nombre del mes, etc.
 Las dimensiones de tiempo en un almacén de datos generalmente se implementan como una tabla de dimensiones que contiene una fila para cada una de las unidades temporales de granularidad más pequeñas (a menudo denominadas grano de la dimensión) mediante las cuales se desean agregar las medidas en las tablas de hechos. En este caso, el grano más bajo en el que se pueden agregar medidas es una fecha individual y la tabla contiene una fila para cada fecha desde la primera hasta la última fecha a la que se hace referencia en los datos. Los atributos de la tabla **DimDate** permiten a los analistas agregar medidas basadas en cualquier clave de fecha en la tabla de hechos, utilizando un conjunto consistente de atributos temporales (por ejemplo, ver pedidos por mes según la fecha del pedido). La tabla **FactInternetSales** contiene tres claves relacionadas con la tabla **DimDate : OrderDateKey , DueDateKey y ShipDateKey**.
+
+![](../03-Explorar-data-warehouse/images/Data.PNG)
 
 ## Consultar las tablas del almacén de datos.
 
