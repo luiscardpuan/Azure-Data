@@ -117,6 +117,22 @@ Los valores numéricos en un almacén de datos relacional se almacenan en tablas
 	GROUP BY d.CalendarYear, d.MonthNumberOfYear
 	ORDER BY Year, Month;
 	```
+Tenga en cuenta que los atributos de la dimensión de tiempo le permiten agregar las medidas de la tabla de hechos en varios niveles jerárquicos (en este caso, año y mes). Este es un patrón común en los almacenes de datos.
+
+6.	Modifique la consulta de la siguiente manera para eliminar el mes y agregar una segunda dimensión a la agregación, y luego ejecútela para ver los resultados (que muestran los totales anuales de ventas por Internet para cada región):
+   
+	```sql
+	SELECT  d.CalendarYear AS Year,
+	    g.EnglishCountryRegionName AS Region,
+	    SUM(i.SalesAmount) AS InternetSalesAmount
+	FROM FactInternetSales AS i
+	JOIN DimDate AS d ON i.OrderDateKey = d.DateKey
+	JOIN DimCustomer AS c ON i.CustomerKey = c.CustomerKey
+	JOIN DimGeography AS g ON c.GeographyKey = g.GeographyKey
+	GROUP BY d.CalendarYear, g.EnglishCountryRegionName
+	ORDER BY Year, Region;
+	```
+   
 
 
 
