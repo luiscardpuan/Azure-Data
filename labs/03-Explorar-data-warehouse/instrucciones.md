@@ -230,10 +230,11 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 	```
 4.	Seleccione solo el nuevo código de consulta y use el botón **&#9655;** Ejecutar para ejecutarlo. Luego revise los resultados y observe lo siguiente:
 
--	Los resultados incluyen una fila para cada ciudad, agrupada por región.
--	Las ventas totales (suma de los montos de ventas individuales) se calculan para cada ciudad.
--	El total de ventas regionales (la suma de los montos de ventas de cada ciudad de la región) se calcula en función de la partición regional.
--	La clasificación de cada ciudad dentro de su partición regional se calcula ordenando el monto total de ventas por ciudad en orden descendente.
+	-	Los resultados incluyen una fila para cada ciudad, agrupada por región.
+	-	Las ventas totales (suma de los montos de ventas individuales) se calculan para cada ciudad.
+	-	El total de ventas regionales (la suma de los montos de ventas de cada ciudad de la región) se calcula en función de la partición regional.
+	-	La clasificación de cada ciudad dentro de su partición regional se calcula ordenando el monto total de ventas por ciudad en orden descendente.
+  
 5.	Publique el script actualizado para guardar los cambios.
 
 	> **NOTA** : ROW_NUMBER y RANK son ejemplos de funciones de clasificación disponibles en Transact-SQL. Para obtener más detalles, consulte la referencia de Funciones de clasificación en la documentación del lenguaje Transact-SQL.
