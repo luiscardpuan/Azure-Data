@@ -211,7 +211,7 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 	-	Las filas están organizadas en particiones según la geografía donde se realizó la venta.
 	-	Las filas dentro de cada partición geográfica están numeradas en orden de monto de ventas (de menor a mayor).
 	-	Para cada fila, se incluyen el monto de ventas de la línea de pedido, así como el total regional y los montos de ventas promedio.
- -	
+	
 3.	En las consultas existentes, agregue el siguiente código para aplicar funciones de ventanas dentro de una consulta GROUP BY y clasificar las ciudades de cada región según su monto total de ventas:
   	
 	```sql
