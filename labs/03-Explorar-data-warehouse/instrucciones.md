@@ -239,6 +239,20 @@ Otro requisito común al analizar grandes volúmenes de datos es agrupar los dat
 
 	> **NOTA** : ROW_NUMBER y RANK son ejemplos de funciones de clasificación disponibles en Transact-SQL. Para obtener más detalles, consulte la referencia de Funciones de clasificación en la documentación del lenguaje Transact-SQL.
 
+# Actividad: analizar las ventas de revendedores
+
+1.	Cree un nuevo script vacío para el grupo de SQL **sqlxxxxxxx** y guárdelo con el nombre **Analizar ventas de revendedor**.
+
+2.	Cree consultas SQL en el script para buscar la siguiente información según la tabla de hechos **FactResellerSales** y las tablas de dimensiones con las que está relacionada:
+
+	-	La cantidad total de artículos vendidos por año fiscal y trimestre.
+	-	La cantidad total de artículos vendidos por año fiscal, trimestre y región del territorio de ventas asociados con el empleado que realizó la venta.
+	-	La cantidad total de artículos vendidos por año fiscal, trimestre y región del territorio de ventas por categoría de producto.
+	-	La clasificación de cada territorio de ventas por año fiscal según el monto total de ventas del año.
+	-	El número aproximado de pedidos de ventas por año en cada territorio de ventas.	
+
+3.	Experimente con consultas para explorar el resto de las tablas en el esquema del almacén de datos cuando lo desee.
+
 
 
 
