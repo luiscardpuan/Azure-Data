@@ -85,5 +85,35 @@ deltaTable.history(10).show(20, False, True)
 ```
 Se muestra el historial de los últimos 20 cambios en la tabla; debería haber dos (la creación original y la actualización que realizó).
 
+## Crear tablas de catálogo
 
+Hasta ahora ha trabajado con tablas delta cargando datos de la carpeta que contiene los archivos de parquet en los que se basa la tabla. Puede definir tablas de catálogo (*catalog tables*) que encapsulan los datos y proporcionan una entidad de tabla con nombre a la que puede hacer referencia en código SQL. Spark admite dos tipos de tablas de catálogo para delta lake:
+
+-  *External* Tablas externas que están definidas por la ruta a los archivos de parquet que contienen los datos de la tabla.
+-  *Managed* Tablas administradas , que se definen en el metastore de Hive para el grupo de Spark.
+
+### Crear una tabla externa
+En una nueva celda de código, agregue y ejecute el siguiente código:
+
+```Python
+spark.sql("CREATE DATABASE AdventureWorks")
+spark.sql("CREATE TABLE AdventureWorks.ProductsExternal USING DELTA LOCATION '{0}'".format(delta_table_path))
+spark.sql("DESCRIBE EXTENDED AdventureWorks.ProductsExternal").show(truncate=False)
+```
+
+Este código crea una nueva base de datos llamada **AdventureWorks** y luego crea una tabla externa llamada **ProductsExternal** en esa base de datos basada en la ruta a los archivos de parquet que definió anteriormente. Luego muestra una descripción de las propiedades de la tabla. Tenga en cuenta que la propiedad **Location** es la ruta que especificó.
+
+Agregue una nueva celda de código y luego ingrese y ejecute el siguiente código:
+
+```sql
+%%sql
+
+USE AdventureWorks;
+
+SELECT * FROM ProductsExternal;
+```
+
+El código utiliza SQL para cambiar el contexto a la base de datos **AdventureWorks** (que no devuelve datos) y luego consulta la tabla ProductsExternal (que devuelve un conjunto de resultados que contiene los datos de los productos en la tabla Delta Lake).
+
+### Crear una tabla administrada
   
