@@ -58,4 +58,32 @@ deltaTable.update(
 deltaTable.toDF().show(10)
 ```
 
+Los datos se cargan en un objeto **DeltaTable** y se actualizan. Puede ver la actualización reflejada en los resultados de la consulta.
+
+Agregue otra celda de código nueva con el siguiente código y ejecútelo:
+
+```Python
+new_df = spark.read.format("delta").load(delta_table_path)
+new_df.show(10)
+```
+
+El código carga los datos de la tabla delta en un marco de datos desde su ubicación en el lago de datos, verificando que el cambio realizado a través de un objeto **DeltaTable** haya persistido.
+
+Modifique el código que acaba de ejecutar de la siguiente manera, especificando la opción para usar la función de viaje en el tiempo de delta lake para ver una versión anterior de los datos.
+
+```Python
+new_df = spark.read.format("delta").option("versionAsOf", 0).load(delta_table_path)
+new_df.show(10)
+```
+
+Cuando ejecuta el código modificado, los resultados muestran la versión original de los datos.
+
+Agregue otra celda de código nueva con el siguiente código y ejecútelo:
+
+```Python
+deltaTable.history(10).show(20, False, True)
+```
+Se muestra el historial de los últimos 20 cambios en la tabla; debería haber dos (la creación original y la actualización que realizó).
+
+
   
