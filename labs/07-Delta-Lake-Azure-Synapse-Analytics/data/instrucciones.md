@@ -23,11 +23,11 @@ display(df.limit(10))
 ```
 Utilice el icono **▷** a la izquierda de la celda del código para ejecutarlo y espere los resultados. La primera vez que ejecuta una celda en un cuaderno, se inicia el grupo de Spark, por lo que puede tardar aproximadamente un minuto en devolver resultados. Finalmente, los resultados deberían aparecer debajo de la celda y deberían ser similares a este:
 
-        | ProductID | ProductName | Category | ListPrice |
-        | -- | -- | -- | -- |
-        | 771 | Mountain-100 Silver, 38 | Mountain Bikes | 3399.9900 |
-        | 772 | Mountain-100 Silver, 42 | Mountain Bikes | 3399.9900 |
-        | ... | ... | ... | ... |
+| ProductID | ProductName | Category | ListPrice |
+| -- | -- | -- | -- |
+| 771 | Mountain-100 Silver, 38 | Mountain Bikes | 3399.9900 |
+| 772 | Mountain-100 Silver, 42 | Mountain Bikes | 3399.9900 |
+| ... | ... | ... | ... |
 
   ### Cargue los datos del archivo en una tabla delta
 
