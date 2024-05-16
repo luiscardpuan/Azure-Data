@@ -23,19 +23,19 @@ Descomente la línea, *header=True* (porque el archivo productos.csv tiene los e
   ```
 Utilice el icono **▷** a la izquierda de la celda del código para ejecutarlo y espere los resultados. La primera vez que ejecuta una celda en un cuaderno, se inicia el grupo de Spark, por lo que puede tardar aproximadamente un minuto en devolver resultados. Finalmente, los resultados deberían aparecer debajo de la celda y deberían ser similares a este:
 
-    | ProductID | ProductName | Category | ListPrice |
-    | -- | -- | -- | -- |
-    | 771 | Mountain-100 Silver, 38 | Mountain Bikes | 3399.9900 |
-    | 772 | Mountain-100 Silver, 42 | Mountain Bikes | 3399.9900 |
-    | ... | ... | ... | ... |
+        | ProductID | ProductName | Category | ListPrice |
+        | -- | -- | -- | -- |
+        | 771 | Mountain-100 Silver, 38 | Mountain Bikes | 3399.9900 |
+        | 772 | Mountain-100 Silver, 42 | Mountain Bikes | 3399.9900 |
+        | ... | ... | ... | ... |
 
   ### Cargue los datos del archivo en una tabla delta
 
   Debajo de los resultados devueltos por la primera celda de código, use el botón + **Code** para agregar una nueva celda de código. Luego ingrese el siguiente código en la nueva celda y ejecútelo:
 
     ```Python
-    delta_table_path = "/delta/products-delta"
-    df.write.format("delta").save(delta_table_path)
+      delta_table_path = "/delta/products-delta"
+      df.write.format("delta").save(delta_table_path)
     ```
 
 En la pestaña de archivos , use el ícono ↑ en la barra de herramientas para regresar a la raíz del contenedor de **files** y observe que se ha creado una nueva carpeta llamada **delta**. Abra esta carpeta y la tabla delta de productos que contiene, donde debería ver los archivos en formato parquet que contienen los datos.
