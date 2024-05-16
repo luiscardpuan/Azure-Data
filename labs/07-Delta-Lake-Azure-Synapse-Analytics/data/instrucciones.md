@@ -116,4 +116,54 @@ SELECT * FROM ProductsExternal;
 El código utiliza SQL para cambiar el contexto a la base de datos **AdventureWorks** (que no devuelve datos) y luego consulta la tabla ProductsExternal (que devuelve un conjunto de resultados que contiene los datos de los productos en la tabla Delta Lake).
 
 ### Crear una tabla administrada
-  
+
+En una nueva celda de código, agregue y ejecute el siguiente código:
+
+```Python
+df.write.format("delta").saveAsTable("AdventureWorks.ProductsManaged")
+spark.sql("DESCRIBE EXTENDED AdventureWorks.ProductsManaged").show(truncate=False)
+```
+
+Este código crea una tabla administrada denominada **ProductsManaged**  basada en el DataFrame que cargó originalmente desde el archivo **products.csv** (antes de actualizar el precio del producto 771). No especifica una ruta para los archivos de parquet utilizados por la tabla; esto se administra automáticamente en el metastore de Hive y se muestra en la propiedad **Location** en la descripción de la tabla (en la ruta **files/synapse/workspaces/synapsexxxxxxx/warehouse** ).
+
+Agregue una nueva celda de código y luego ingrese y ejecute el siguiente código:
+
+```sql
+%%sql
+
+USE AdventureWorks;
+
+SELECT * FROM ProductsManaged;
+```
+
+El código utiliza SQL para consultar la tabla **ProductsManaged**
+
+### Comparar tablas externas y administradas
+
+En una nueva celda de código, agregue y ejecute el siguiente código:
+
+```sql
+%%sql
+
+USE AdventureWorks;
+
+SHOW TABLES;
+```
+Este código enumera las tablas en la base de datos **AdventureWorks**
+
+Modifique la celda del código de la siguiente manera, agregue ejecútelo:
+
+```sql
+%%sql
+
+USE AdventureWorks;
+
+DROP TABLE IF EXISTS ProductsExternal;
+DROP TABLE IF EXISTS ProductsManaged;
+```
+
+Este código elimina las tablas del metastore
+
+Regrese a la pestaña de archivos y vea la carpeta **files/delta/products-delta**. Tenga en cuenta que los archivos de datos todavía existen en esta ubicación. Al eliminar la tabla externa, se eliminó la tabla del metastore, pero se dejaron los archivos de datos intactos.
+
+Vea la carpeta files/synapse/workspaces/synapsexxxxxxx/warehouse y tenga en cuenta que no hay ninguna carpeta para los datos de la tabla **ProductsManaged**. Al eliminar una tabla administrada, se elimina la tabla del metastore y también se eliminan los archivos de datos de la tabla.
